@@ -1,13 +1,25 @@
-import random
+def contains_369(num):
+    """숫자에 3,6,9 중 하나라도 포함되어 있으면 True 반환"""
+    return any(digit in '369' for digit in str(num))
 
-# 3 6 9
+def correct_answer(num):
+    """숫자에 3,6,9가 있으면 '짝', 없으면 숫자 문자열 반환"""
+    return "짝" if contains_369(num) else str(num)
 
-# 사용자는 input 함수를 통해 해당 숫자or 3,6,9가 들어가는 곳에서 '짝'을 입력해야함
+my_turn = True  # True면 사용자의 차례, False면 컴퓨터 차례
+
+for num in range(1, 100):
+    if my_turn:
+        user_input = input(f"{num}번, 당신 차례입니다 (3,6,9 포함이면 '짝'): ")
+        if user_input != correct_answer(num):
+            print("패배!")
+            break
+    else:
+        # 컴퓨터는 항상 정답을 출력함
+        print(f"{num}번, 컴퓨터 차례입니다: {correct_answer(num)}")
+    
+    my_turn = not my_turn  # 차례 교대
 
 
-value = 1
-user = input("해당하는 숫자입력:")
 
-# 무한 반복, 사용자 틀린 값 시 에러 출력
-while value
 
