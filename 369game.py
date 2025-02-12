@@ -17,12 +17,11 @@
    - 각 턴마다 my_turn 변수를 토글하여 사용자와 컴퓨터가 번갈아 진행.
 """
 
-# 숫자에 3, 6, 9가 있는지 확인하는 함수 정의 (구현은 추후 추가)
-def contains_369(num):
-    # 구현 예정
-    pass
 
-# 해당 숫자의 정답을 반환하는 함수 정의 (구현은 추후 추가)
+# 숫자에 3, 6, 9가 있는지 확인하는 함수 구현
+def contains_369(num):
+    return any(digit in '369' for digit in str(num))
+
+# 해당 숫자의 정답을 반환하는 함수 구현
 def correct_answer(num):
-    # 구현 예정
-    pass
+    return "짝" if contains_369(num) else str(num)
